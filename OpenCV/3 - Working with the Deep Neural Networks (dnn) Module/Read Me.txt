@@ -1,0 +1,60 @@
+A - DNN process
+
+1 -> 2 -> 3 -> 4 -> 5
+
+1)  Load models trained in other deep learning frameworks
+	. TenserFlow
+	. Caffe
+	. PyTorch
+
+2) Use blobFromImages()
+
+3) Blob
+
+4) Trained Model
+
+5) Inference
+
+
+net = cv2.dnn.readNetFrom...(...)
+blob=cv2.dnn.blobFromImage(...)
+net.setInput(blob)
+outp = net.foward()
+
+
+So we have:
+cv2.dnn.readNetFromCaffe(prototxt, caffeModel)
+blob = cv2.dnn.blobFromImage(image,[scalefactor], [size], [mean], [swapRB], [crop], [ddepth])
+net.setInput(blob)
+outp = net.foward()
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+B - Blobs
+
+  1 	-> 	2 	   ->  3   ->      4 	    ->     5
+Images  -> blobFromImage() -> Blob -> Trained Model -> Inference
+
+Blob is one or more images with the same width, height, and number of channels that have all been preprocessed in the same way.
+
+So we can pass more than one images from blobFromImage() and the output is a four dimensional tensor, where N is the number of images
+C is the number of channels, H is the height of the tensor and W is the width of the tensor:
+
+N = number of images
+C = number of channels
+H = Height of the tensor
+W = width of the tensor
+
+These allow us to get the image or video inference:
+	. object detection
+	. image classification
+	. semantic segmentation
+
+blob = cv2.dnn.blobFromImage(image, scaleFactor, size, mean, swapRB, crop, ddepth)
+image -> Input image (1, 3 or 4 channels)
+scalefactor -> multiplier for image values, can increase or decrease the size of the imageby a factor
+size -> spatial size for output image,  refers to the size of the image the neural network expect
+mean -> scalar with mean values that are subtracted from channels. These refers to R, G, B that must be subtracted for each channel
+swapRB -> Flag that swaps channels (from RGB to BGR)
+crop -> Flag to crop image after resize, and is not perferm by default.
+ddepth -> Depth of output blob CV_32F or CV_8U

@@ -1,0 +1,101 @@
+A - Classification for an imageÇ Getting the classes
+
+The image database is organized according to the wordnet hierarchy, each meaningful concept
+in wordnet, which could be multiple words is called a synonym set or a synset. These 1000 clases are stored in this synset file.
+
+In synset file, there are rows, which are the categories, and this starts with an id, and then one or more words describing the category
+
+
+import numpy as np
+import cv2
+img = cv2.imread('../images/typewriter.jpg')
+#print(img.shape)
+
+#open the synset, read, strip off any character turns and split it in all rows
+all_rows = open('../model/synset_words.txt').read().strip().split("\n")
+
+classes = [r[r.find(' ') + 1:] for r in all_rows]
+
+# to make sure that the classes works
+for(i, c) in enumerate(classes):
+	if i == 4:
+		break
+	# otherwise print c
+	print(i, c)
+
+cv2.imshow('Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+B - Classification for an image Inference
+When pass the image on pre-trained 1000 imageNet, the model than output the probality the image contains each of the 1000 classes
+When open the prototext file, it shows the deep learning architecture of the module is a JSON like structure. The pretrained model is in the Caffe model file.
+
+
+import numpy as np
+import cv2
+img = cv2.imread('../images/typewriter.jpg')
+#print(img.shape)
+
+#open the synset, read, strip off any character turns and split it in all rows
+all_rows = open('../model/synset_words.txt').read().strip().split("\n")
+
+classes = [r[r.find(' ') + 1:] for r in all_rows]
+
+
+net = cv2.dnn.readNetFromCaffe('../model/bvlc_googlenet.prototxt', '../model/bvlc_googlenet.caffemodel')
+
+# Protxt file indicate the size of the imagem, that indicated on: input_dim: 224
+blob = cv2.dnn.blobFromImage(img, 1, (224, 224))
+
+# set the input to the network
+net.setInput(blob)
+
+# Forward pass to get the predictions for each of the 1000 classes
+outp = net.forward()
+
+# print(outp)
+
+# Here we have to separate only the top 5 that want to show
+idx = np.argsort(outp[0])[::-1][:5]
+
+# Show top five predictions, the associated labels and their probability
+for(i, id) in enumerate(idx):
+	# 3 last significant digits, and format all
+	print('{}, {}, ({}): Probability {:.3}%'.format(i+1, classes[id], id, outp[0][id]*100))
+
+# to make sure that the classes works
+#for(i, c) in enumerate(classes):
+#	if i == 4:
+#		break
+#	# otherwise print c
+#	print(i, c)
+
+cv2.imshow('Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+# The output is an image and also outp a probability that the image is one of these classes
+-----------------------------------------------------------------------------------------------------------------------------------
+
+C - Classification for a video
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+D - YOLOv3
+YOLO = You Only Look Once
+
+Before
+In the past Other algorithms apply a model multiple times at different locations and scales
+
+With YOLO v3
+Applies model once to multiple regios of the image. The neural network divides the image into regions and predicts bounding boxes and 
+probabilities for each region. The network only needs to view the image one time, and then the bounding boxes are weighted by the predictive probabilities.
+
+YOLOv3 has been trained on the COCO dataset, which has 80 different classes of objects.
+http://cocodataset.org/
+
+
+E - YOLOv3 in action

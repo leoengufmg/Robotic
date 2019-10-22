@@ -1,0 +1,32 @@
+A - Deep Learning OpenCV
+originally written in c++, and when used with Python, The OpenCV Array Structures are converted to and from NumPy Array
+
+	C++			Python
+	OpenCV Array		NumPy Array
+
+Numpy contain:
+	. powerful N-dimensional array objects
+	. sophisticate broadcasting fuctions
+	. tools for integrating C, C++ and Fortran code (processing images faster)
+	. Mathematical capabilities: Linear algebra, Fourier Transforms, tandom number capabilities
+
+Numpy object is multidimendional array, its a table of elements, usually numbers, indexed by a tuple of positive intergers
+Evey Numpy provides a large set of numeric data types, and every NumPy array is a grid of elements of the same type.
+
+
+B - Understand Images
+
+Grayscale camera record the intensity of reflected of light
+	BLACK				WHITE
+	0	---------------------	255
+
+Color Camera si a number of each of RGB scale
+	RED	GREEN	BLUE
+	0	  0	  0
+	255	 255	 255
+
+Color is a mixture of lights of different wavelengths. 
+
+When use OpenCV, its use BGR system color so:
+	RGB: (200, 72, 159)
+	BGR: (159, 72, 200)

@@ -1,0 +1,76 @@
+A - Artificial Intelligence (AI)
+Machine doing humans taks like:
+	Visual Perception
+	Speech Recognation
+	Translation between two languages
+
+Artificial Intelligence
+	Machine learning
+		Deep learning
+
+Machine Learning require some rules
+	. Input Data -> create some rules -> Output
+	. With data input and output, determine what the rules should be, so the system is "training" rather than explicitly programmed
+
+Deep Learing Network
+	. The rules is divided into layers and give an Final Output
+	. Exemple: Input is an image with number 4, and output have to predict the number 4. The rules is divided into layer and each layer has weights and biases that can be modified
+		and deep learning is when have more than hidden layer. Each leayer learning certain characteristics of the image (edges, corners or textures). When you give and input and
+		determines that its number four, each layer learn that these all fours. To reduce loss function, need to make sort feedback to compare predicted output with the actual one
+		and then, modify the weights of each of the layers, starting from the final layer and working our way back.
+
+	. Optmization: make algorithms, called back propagation, to make good feedback mechanism to achieve the final layer that was expected.
+
+Application of Deep Learning
+. Self-driving cars
+. Image classification
+. Hadwriting transcription
+. Speech recognition
+. Language translation
+
+B - OpenCV 
+Its an Open Source Compute Vision and machine learning software library, which have more than 2500 optimized algorithms, which include classic and state-of-the-art computer vision and machine learning algorithms.
+Can do:
+	. Facial recognition
+	. Object Identification
+	. Human action classification
+	. Camara movement tracking
+	. Others
+
+Can use with languages:
+	. c++
+	. Python
+	. Java
+	. Matlab
+
+Can use with OS:
+	. Windows
+	. Linux
+	. Android
+	. Mac OS
+
+the module that it will be used is OpenCV Deep Neural Networks (dnn)
+
+C - Deep Neural Networks (dnn)
+Canot train any deep learning network, no back propagation, so no learning. In this case the layers are Pretrained Model.
+Only consider Foward Passs
+
+DNN module suport: 
+	. caffe
+	. tensorFlow
+	. torch
+	. darknet
+	. onnx
+
+OpenCV has no framework-specific limitations, Models are represented internally in OpenCV, the code can be optimized. OpencV has its own deep learning implementation.
+If hardware support 16-bit floating-point operations, this is more efficient than 32-bit FPOs (usually twice fast). In the world of IoT of Edge devices, most of the 
+world inferences is done using CPU, that cost few hundred dollars into the devices, so OpensCV deep learniing module a good fit.
+
+On OpenCV web page, there a several basic neural network layers that are supported
+	convolution
+	deconvolution
+	activation fuctions (Tanh, ReLU, Sigmoid, Softmax, Reshepa, Flatten, Slice, Split)
+
+OpenCV Deep Learning in OpenCV
+	https://github.com/opencv/opencv/wiki/Deep-Learning-in-OpenCV
+	

@@ -1,0 +1,39 @@
+A - Pre requisities:
+. OpenCV 4.0
+. Python
+. Deep Learning (Neural Network and Convolution Neural Networks)
+
+B - Softwares
+Anaconda - Python 3.7
+	. https://www.anaconda.com/distribution/#download-section
+	. Add to Path Enviroment during the instalation
+		commands:
+			. python
+			. exit()
+			. conda
+
+C - Create virtual enviroment
+Its a great way to separete different Python projects
+
+1- Create a name
+conda create --name ocv4 python=3.7.4
+yes
+cls
+
+2- Activate it and install cmake, numpy and openCV
+conda activate ocv4
+pip install cmake
+pip install numpy
+pip install opencv-contrib-python==4.0.1.24
+
+conda install -c conda-forge dlib
+yes
+cls
+
+python
+import numpy
+import cv2 
+
+D - Install text editor
+Notepad++
+Atom

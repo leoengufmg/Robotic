@@ -1,0 +1,98 @@
+A - VIEW IMAGES IN OPENCV
+# ON PROMPT COMMAND
+
+cd ExerciseFiles/02_01
+activate ocv4
+atom image.py
+
+# AT ATOM EDITOR, SAME DIRECTORY OF EXERCISE FILES
+import numpy as np
+import cv2
+img = cv2.imread('../images/devon.jpg')
+#print(type(img))
+
+# shape format is (rows, Columns, Channels). Channels correspong to B, G, R
+print(img.shape)
+
+# To display this image
+cv2.imshow('Image', img)
+
+# waitKey(0) means execution is paused until the key is pressed, if dont have waitKey, the image will display briefly and then disapear. 
+# If cv2.waitKey(3000), for at least 3000 miliseconds for a keystroke before the window is closed
+cv2.waitKey(0)
+
+# Destroy all windows that created
+cv2.destroyAllWindows()
+
+
+# SAVE THE FILE AND THAN GOES TO PROMPT COMMAND TO TEST THE FILE
+python image.py
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+B - WORKING WITH COLOR CHANNELS
+>>> print img.shape
+	(342, 548, 3)	ROW, COLUMNS, CHANNELS
+
+# DISPLAY THE BLUE CHANNEL
+import numpy as np
+import cv2
+img = cv2.imread('../images/devon.jpg')
+
+# BLUE
+b = img[;,;,0]
+print(b)
+
+# GREEN
+g = img[;,;,1]
+print(g)
+
+# RED
+r = img[;,;,2]
+print(r)
+
+cv2.imshow('Blue', b)
+cv2.imshow('Green', g)
+cv2.imshow('Red', r)
+cv2.imshow('Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# When open the window, at blue channel the place where is more lighter (sky) show its contribuition
+
+# SAVE THE FILE AND THAN GOES TO PROMPT COMMAND TO TEST THE FILE
+>>> activate ocv4
+>>> python image.py
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+C - VIDEOS IN OPENCV
+
+import numpy as np
+import cv2
+
+cap = cv2.VideoCapture('../images/shore.mov')
+
+# check if can open the video stream
+if cap.isOpened() == False:
+	print('Cannot open file or video stream')
+
+# look through and read and display video frames until either the video is completed
+# or the user quits by typing an escape key
+
+while true:
+	ret, frame = cap.read()	
+	
+	# if ret is true is able to display the frame
+	if ret == True:
+		cv2.imshow('Frame', frame)
+	# to play a video, need to pass a number greater than zero to the waitkey function
+	# because zero would pause the frame in the video. OpenCV doc sugest to put 25ms
+
+		if cv2.waitKey(25) & 0xFF = 27:
+			break;
+		else:
+			break;
+	cap.release()
+	cv2.destroyAllWindows()
