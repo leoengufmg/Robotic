@@ -1,0 +1,8 @@
+Linux 
+
+	sudo apt-get install vim
+	sudo apt-get install qtcreator
+	sudo apt-get install pip
+	sudo apt-get install ranger
+	
+

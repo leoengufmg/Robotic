@@ -1,0 +1,6 @@
+step by step
+https://index.ros.org/doc/ros2/Installation/Foxy/Windows-Install-Binary/#install-chocolatey
+
+	CHOCOLATEY (https://chocolatey.org/install#individual)
+		PowerShell
+		

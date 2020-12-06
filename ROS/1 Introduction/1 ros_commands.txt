@@ -1,0 +1,4 @@
+roscore
+catkin_ws/src$ catkin_init_workspace
+catkin_ws$ catkin_make # Compile all packages
+catkin_ws$ catkin_make --only-pkg-with-deps PACKAGE_NAME # Compile specific package
